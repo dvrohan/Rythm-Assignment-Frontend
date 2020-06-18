@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <div style="text-align:center">
+      <h1>
+        List
+      </h1>
+    </div>
+    <ul>
+      <li *ngFor="let item of items">
+        <h2>{{ item.name }}x {{ item.company_name }}x {{ item.model_name }}x {{ item.mileage }}x {{ item.horse_power }}
+        <button (click)="delete(item.id)">x</button></h2>
+      </li>
+    </ul>
+    
+    <input #Name type='text' placeholder='Name'>
+    <input #company_name type='text' placeholder='Company'>
+    <input #model_name type='text' placeholder='Model'>
+    <input #mileage type='number' placeholder='Mileage'>
+    <input #horse_power type='number' placeholder='Horse Power'>
+    <button (click)="add(Name.value, company_name.value, model_name.value, mileage.value, horse_power.value)">Add</button>
+    {{ error?.message }}
+    
+  </body>
+</html>
