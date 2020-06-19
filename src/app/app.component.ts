@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { Car } from './car.interface';
 
-@Component({ 
-  selector: 'app-root', 
-  templateUrl: './app.component.html', 
-  styleUrls: ['./app.component.css'] 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent implements OnInit {
@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
     );
   }
 
-  add(Name: string, company_name: string, model_name: string, mileage: number, horse_power: number) {
-    this.api.createCar(Name, company_name, model_name, mileage, horse_power).subscribe(
+  add(Name: string, companyName: string, modelName: string, mileage: number, horsePower: number) {
+    this.api.createCar(Name, companyName, modelName, mileage, horsePower).subscribe(
       (item: Car) => this.items.push(item)
     );
   }

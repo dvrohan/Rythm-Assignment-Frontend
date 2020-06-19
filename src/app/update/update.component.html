@@ -1,0 +1,8 @@
+<input #Name type='text' placeholder='Name'>
+<input #companyName type='text' placeholder='Company'>
+<input #modelName type='text' placeholder='Model'>
+<input #mileage type='number' placeholder='Mileage'>
+<input #horsePower type='number' placeholder='Horse Power'>
+<button type="button" class="btn btn-primary"
+    (click)="update(Name.value, companyName.value, modelName.value, mileage.value, horsePower.value)"> Update </button>
+ <p class="text-danger" >{{ error }}</p>

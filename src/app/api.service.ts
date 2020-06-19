@@ -23,4 +23,8 @@ export class ApiService {
   deleteCar(id: number) {
     return this.http.delete(this.apiRoot.concat(`car/${id}/`));
   }
+
+  updateCar(id: number, name, company_name, model_name, mileage, horse_power){
+    return this.http.put(this.apiRoot.concat(`car/${id}/`), { id, name, company_name, model_name, mileage, horse_power}, {observe: 'response'});
+  }
 }

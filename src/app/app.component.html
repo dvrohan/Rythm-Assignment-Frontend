@@ -1,24 +1,54 @@
-<html>
-  <body>
-    <div style="text-align:center">
-      <h1>
-        List
-      </h1>
-    </div>
-    <ul>
-      <li *ngFor="let item of items">
-        <h2>{{ item.name }}x {{ item.company_name }}x {{ item.model_name }}x {{ item.mileage }}x {{ item.horse_power }}
-        <button (click)="delete(item.id)">x</button></h2>
-      </li>
-    </ul>
-    
-    <input #Name type='text' placeholder='Name'>
-    <input #company_name type='text' placeholder='Company'>
-    <input #model_name type='text' placeholder='Model'>
-    <input #mileage type='number' placeholder='Mileage'>
-    <input #horse_power type='number' placeholder='Horse Power'>
-    <button (click)="add(Name.value, company_name.value, model_name.value, mileage.value, horse_power.value)">Add</button>
-    {{ error?.message }}
-    
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+	<div class="limiter">
+		<div class="container-table100">
+			<input #Name type='text' placeholder='Name'>
+			<input #companyName type='text' placeholder='Company'>
+			<input #modelName type='text' placeholder='Model'>
+			<input #mileage type='number' placeholder='Mileage'>
+			<input #horsePower type='number' placeholder='Horse Power'>
+			<button type="button" class="btn btn-primary"
+				(click)="add( Name.value, companyName.value, modelName.value, mileage.value, horsePower.value)"> Add
+			</button>
+			<router-outlet></router-outlet>
+			{{ error?.message }}
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Name</th>
+								<th class="column2">Company Name ID</th>
+								<th class="column3">Model Name</th>
+								<th class="column4">Mileage</th>
+								<th class="column5">Horse Power</th>
+								<th class="column6">Delete</th>
+								<th class="column7">Update</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let item of items">
+								<td class="column1">{{ item.name }}</td>
+								<td class="column2">{{ item.company_name }}</td>
+								<td class="column3">{{ item.model_name }}</td>
+								<td class="column4">{{ item.mileage }}</td>
+								<td class="column5">{{ item.horse_power }}</td>
+								<td class="column6"><button type="button" class="btn btn-danger"
+										(click)="delete(item.id)">Delete</button></td>
+								<td class="column7"><button>
+										<nav><a [routerLink]="['/update',item.id]"
+												routerLinkActive="router-link-active">Update</a></nav>
+									</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
 </html>
